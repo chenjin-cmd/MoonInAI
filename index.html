@@ -1,187 +1,494 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="MoonInAI的空间，传统企业 AI 系统顾问 / AI 副业陪跑者。"
-    />
-    <title>MoonInAI的空间</title>
-    <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="grain" aria-hidden="true"></div>
-    <span class="cross cross--tl" aria-hidden="true"></span>
-    <span class="cross cross--tr" aria-hidden="true"></span>
-    <span class="cross cross--bl" aria-hidden="true"></span>
-    <span class="cross cross--br" aria-hidden="true"></span>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MoonInAI — AI 系统 × build in public</title>
+<meta name="description" content="MoonInAI — 传统企业 AI 系统顾问 / AI 副业陪跑者。用 AI 改造真实业务，用系统拆解学习、副业和增长。" />
+<link rel="icon" href="data:," />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Noto+Serif+SC:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
 
-    <aside class="rail" aria-label="页面章节">
-      <a href="#hero"><b>00</b><span>HOME</span></a>
-      <a href="#about"><b>01</b><span>ABOUT</span></a>
-      <a href="#service"><b>02</b><span>SERVICE</span></a>
-      <a href="#method"><b>03</b><span>METHOD</span></a>
-      <a href="#build"><b>04</b><span>BUILD</span></a>
-      <a href="#contact"><b>05</b><span>CONTACT</span></a>
-      <em>BUILD IN PUBLIC · VER. 1.0.0</em>
-    </aside>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="duotone" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 1 0"/>
+      <feComponentTransfer color-interpolation-filters="sRGB">
+        <feFuncR type="table" tableValues="0.102 0.941"/>
+        <feFuncG type="table" tableValues="0.090 0.396"/>
+        <feFuncB type="table" tableValues="0.078 0.180"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+</svg>
 
-    <header class="nav">
-      <a class="brand" href="#hero">MoonInAI的空间</a>
-      <nav aria-label="主导航">
-        <a href="#about">ABOUT</a>
-        <span>·</span>
-        <a href="#service">SERVICE</a>
-        <span>·</span>
-        <a href="#method">METHOD</a>
-        <span>·</span>
-        <a href="#build">BUILD</a>
-        <span>·</span>
-        <a href="#contact">CONTACT</a>
-      </nav>
-      <a class="live-link" href="https://x.com/MoonInAI" target="_blank" rel="noreferrer">@MoonInAI <b>LIVE</b></a>
-    </header>
+<header class="nav" id="nav">
+  <a href="#hero" class="nav__brand">MoonInAI</a>
+  <nav class="nav__links" aria-label="主导航">
+    <a href="#about">ABOUT</a><span class="sep">·</span>
+    <a href="#service">SERVICE</a><span class="sep">·</span>
+    <a href="#method">METHOD</a><span class="sep">·</span>
+    <a href="#build">BUILD</a><span class="sep">·</span>
+    <a href="#contact">CONTACT</a>
+    <span class="nav__stat">BUILDING <i></i></span>
+    <a class="nav__github" href="https://github.com/chenjin-cmd/MoonInAI" target="_blank" rel="noopener" aria-label="GitHub source code">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.92.58.1.79-.25.79-.56v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18.92-.26 1.9-.38 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.42-2.69 5.38-5.25 5.67.42.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+    </a>
+  </nav>
+</header>
 
-    <main>
-      <section class="hero section" id="hero">
-        <div class="section-meta">
-          <span>COORDINATES</span>
-          <strong>31.2304° N, 121.4737° E</strong>
+<div class="rail" aria-hidden="true"><i></i><i></i><i></i></div>
+<span class="cross cross--tr" aria-hidden="true"></span>
+<span class="cross cross--bl" aria-hidden="true"></span>
+<span class="cross cross--br" aria-hidden="true"></span>
+
+<main>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero" id="hero">
+    <div class="hero__left">
+      <h1 class="hero__wordmark" data-reveal>MoonInAI</h1>
+      <div class="hero__lower">
+        <p class="hero__kicker" data-reveal><span class="dot"></span> AI 系统 × build in public</p>
+        <p class="hero__slogan" data-reveal>
+          用 AI 改造真实业务<br />
+          用系统拆解学习、副业和增长
+        </p>
+        <div class="hero__cta" data-reveal>
+          <a href="#service" class="btn btn--ghost">查看服务 <span class="arr">→</span></a>
+          <a href="#contact" class="btn btn--link">先聊聊你的问题 <span class="arr">→</span></a>
         </div>
-        <div class="hero__copy">
-          <p class="kicker">SIGNAL STATION / MOONINAI · BUILD IN PUBLIC</p>
-          <h1>MoonInAI</h1>
-          <p class="identity">传统企业 AI 系统顾问 / AI 副业陪跑者</p>
-          <h2>用 AI 改造真实业务<br />用系统拆解学习、副业和增长</h2>
-          <p class="summary">我帮个人和传统企业，用 AI 建立更强的学习、赚钱、增长和业务系统。</p>
-          <div class="actions">
-            <a class="button button--dark" href="#contact">先聊聊你的问题 →</a>
-            <a class="button" href="#service">查看服务 →</a>
-          </div>
-          <dl class="hero-specs">
-            <div><dt>ID //</dt><dd>MOONINAI</dd></div>
-            <div><dt>EST.</dt><dd>2024</dd></div>
-            <div><dt>FOCUS</dt><dd>AI SYSTEM</dd></div>
-            <div><dt>STATUS</dt><dd>BUILDING</dd></div>
-            <div><dt>SIGNAL</dt><dd class="bars"><i></i><i></i><i></i><i></i><i></i></dd></div>
-          </dl>
+      </div>
+    </div>
+    <div class="hero__right">
+      <!-- AI 神经核心可视化 -->
+      <div class="neuro" aria-hidden="true">
+        <canvas class="neuro__canvas" id="neuroCanvas"></canvas>
+        <svg class="neuro__svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#F0652E" stop-opacity="0.35"/>
+              <stop offset="60%" stop-color="#F0652E" stop-opacity="0.08"/>
+              <stop offset="100%" stop-color="#F0652E" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- 外圈刻度环 -->
+          <g class="neuro__ticks" id="neuroTicks"></g>
+
+          <!-- 中心光晕 -->
+          <circle cx="200" cy="200" r="120" fill="url(#coreGlow)"/>
+
+          <!-- 同心圆 -->
+          <circle cx="200" cy="200" r="40" fill="none" stroke="#1A1714" stroke-width="0.8" opacity="0.4"/>
+          <circle cx="200" cy="200" r="70" fill="none" stroke="#1A1714" stroke-width="0.5" opacity="0.25" stroke-dasharray="2 4"/>
+          <circle cx="200" cy="200" r="110" fill="none" stroke="#1A1714" stroke-width="0.5" opacity="0.18" stroke-dasharray="1 6"/>
+
+          <!-- 旋转扫描扇形 -->
+          <g class="neuro__sweep">
+            <path d="M 200 200 L 200 90 A 110 110 0 0 1 295 245 Z" fill="#F0652E" opacity="0.12"/>
+            <line x1="200" y1="200" x2="200" y2="90" stroke="#F0652E" stroke-width="1.2" opacity="0.6"/>
+          </g>
+
+          <!-- 十字准星 -->
+          <line x1="200" y1="170" x2="200" y2="230" stroke="#1A1714" stroke-width="0.6" opacity="0.5"/>
+          <line x1="170" y1="200" x2="230" y2="200" stroke="#1A1714" stroke-width="0.6" opacity="0.5"/>
+
+          <!-- 中心核心 -->
+          <circle cx="200" cy="200" r="6" fill="#F0652E"/>
+          <circle class="neuro__pulse" cx="200" cy="200" r="6" fill="none" stroke="#F0652E" stroke-width="1.5"/>
+
+          <!-- 关键词节点（JS 动态生成连线） -->
+          <g class="neuro__nodes" id="neuroNodes"></g>
+          <g class="neuro__links" id="neuroLinks"></g>
+        </svg>
+
+        <!-- 角落数据读数 -->
+        <div class="neuro__hud neuro__hud--tl">
+          <span class="neuro__hud-key">SIGNAL</span>
+          <span class="neuro__hud-val" data-neuro-signal>83%</span>
+        </div>
+        <div class="neuro__hud neuro__hud--tr">
+          <span class="neuro__hud-key">NODES</span>
+          <span class="neuro__hud-val" data-neuro-nodes>08</span>
+        </div>
+        <div class="neuro__hud neuro__hud--bl">
+          <span class="neuro__hud-key">LATENCY</span>
+          <span class="neuro__hud-val" data-neuro-latency>12ms</span>
+        </div>
+        <div class="neuro__hud neuro__hud--br">
+          <span class="neuro__hud-key">STATUS</span>
+          <span class="neuro__hud-val neuro__hud-val--live">LIVE</span>
         </div>
 
-        <div class="hero__visual" aria-label="MoonInAI 头像视觉">
-          <figure class="portrait" data-portrait>
-            <span class="portrait__media">
-              <img class="portrait__img" src="./assets/mmexport1779008582137..jpg" alt="MoonInAI 头像" />
-            </span>
-          </figure>
+        <!-- 顶部标签 -->
+        <div class="neuro__label">
+          <span class="neuro__label-dot"></span>
+          AI NEURAL CORE / v1.0
         </div>
+      </div>
+    </div>
+  </section>
 
-      </section>
+  <!-- ═══════════ ABOUT ═══════════ -->
+  <section class="about" id="about">
+    <div class="about__left">
+      <h2 class="about__title" data-reveal>About me</h2>
+      <div class="about__bio" data-reveal>
+        <p>我是 MoonInAI，传统企业 AI 系统顾问 / AI 副业陪跑者</p>
+        <p>关注 AI 在传统企业、个人学习、副业和自媒体增长里的真实落地</p>
+        <p>让 AI 进入每天的销售、内容、资料整理、学习和复盘，而不是只停留在工具演示</p>
+      </div>
 
-      <section class="about section" id="about">
-        <div>
-          <p class="kicker">01 / ABOUT ME</p>
-          <h2>About<br />MoonInAI</h2>
-          <p>我是 MoonInAI，关注 AI 在传统企业、个人学习、副业和自媒体增长里的真实落地。</p>
-          <p>我更关心 AI 能不能进入每天的销售、内容、资料整理、学习和复盘，而不是只停留在工具演示。</p>
+      <figure class="blueprint" data-reveal>
+        <span class="bp__target bp__target--tl"></span>
+        <span class="bp__target bp__target--tr"></span>
+        <span class="bp__target bp__target--bl"></span>
+        <span class="bp__target bp__target--br"></span>
+        <span class="bp__plus" style="top:30%;left:25%">+</span>
+        <span class="bp__plus" style="top:70%;left:30%">+</span>
+        <span class="bp__plus" style="top:34%;left:62%">+</span>
+        <span class="bp__plus" style="top:60%;left:58%">+</span>
+        <span class="bp__ring" aria-hidden="true"></span>
+        <img class="bp__img" src="./assets/mmexport1779008582137..jpg" alt="MoonInAI" />
+
+        <div class="bp__anno bp__anno--tl">
+          <p class="bp__lead"><i class="bp__sq"></i> AI SYSTEM / CONSULTANT</p>
+          <span class="bp__hr"></span>
+          <p class="bp__mono">诊断 · 搭建 · 陪跑</p>
         </div>
-        <div class="about-grid">
-          <div class="method-card">
-            <span>01</span>
-            <b>诊断</b>
-            <em>DIAGNOSE</em>
-            <p>拆解业务与问题，找到关键突破口。</p>
-          </div>
-          <div class="method-card">
-            <span>02</span>
-            <b>搭建</b>
-            <em>BUILD</em>
-            <p>搭建系统与流程，沉淀可复用资产。</p>
-          </div>
-          <div class="method-card">
-            <span>03</span>
-            <b>陪跑</b>
-            <em>ITERATE</em>
-            <p>持续优化与复盘，让结果导向长期增长。</p>
-          </div>
+        <div class="bp__anno bp__anno--spec">
+          <p class="bp__mono bp__mono--key">SPEC.001</p>
+          <p class="bp__mono">FOCUS&nbsp;&nbsp;: AI SYSTEM</p>
+          <p class="bp__mono">TOPIC&nbsp;&nbsp;: 企业 &amp; 副业</p>
+          <p class="bp__mono">FORMAT&nbsp;: 顾问 / 培训</p>
+          <p class="bp__mono">PRODUCT: WORKFLOW</p>
+          <p class="bp__mono">VALUE&nbsp;&nbsp;: LONG-TERM</p>
         </div>
-      </section>
-
-      <section class="services section" id="service">
-        <p class="kicker">02 / SERVICE SIGNALS</p>
-        <h2>SERVICE SIGNALS</h2>
-        <p class="section-lead">五个服务信号，指向同一个目标：让 AI 进入真实业务和真实个人目标。</p>
-        <div class="service-table">
-          <article><b>01</b><h3>传统企业 AI 系统</h3><span>STATUS : LIVE</span><p><strong>FOR</strong> 传统企业老板 / 小团队</p><p><strong>INPUT</strong> 产品资料 / 销售话术 / 客户问题 / 老板经验</p><p><strong>OUTPUT</strong> AI 工作台 / 知识库 / SOP / 话术系统</p></article>
-          <article><b>02</b><h3>企业 AI 培训</h3><span>STATUS : LIVE</span><p><strong>FOR</strong> 老板 / 管理层 / 销售 / 内容团队</p><p><strong>INPUT</strong> 岗位任务 / 真实业务 / 团队问题</p><p><strong>OUTPUT</strong> 培训任务包 / 提示词模板 / 内部案例库</p></article>
-          <article><b>03</b><h3>AI 学习规划</h3><span>STATUS : LIVE</span><p><strong>FOR</strong> 新手 / 职场人 / 创作者</p><p><strong>INPUT</strong> 目标 / 时间 / 基础 / 项目方向</p><p><strong>OUTPUT</strong> 学习路线 / 工具栈 / 实战项目</p></article>
-          <article><b>04</b><h3>副业搞钱</h3><span>STATUS : LIVE</span><p><strong>FOR</strong> 想用 AI 做副业的人</p><p><strong>INPUT</strong> 技能 / 资源 / 内容 / 服务能力</p><p><strong>OUTPUT</strong> 副业项目 / 获客路径 / 交付设计</p></article>
-          <article><b>05</b><h3>自媒体增长陪跑</h3><span>STATUS : LIVE</span><p><strong>FOR</strong> 创作者 / 个人 IP</p><p><strong>INPUT</strong> 定位 / 对标 / 选题 / 内容</p><p><strong>OUTPUT</strong> 选题库 / 发帖结构 / 复盘系统</p></article>
+        <div class="bp__anno bp__anno--ver">
+          <p class="bp__mono bp__mono--key">VER. 1.0.0</p>
+          <p class="bp__mono">DATE. 2024</p>
+          <p class="bp__mono bp__mono--mt">ID 31°14′ N</p>
+          <p class="bp__mono">L121°28′ E</p>
         </div>
-      </section>
+        <div class="bp__anno bp__anno--tr">
+          <p class="bp__mono bp__mono--key">ID // MOONINAI</p>
+        </div>
+        <div class="bp__anno bp__anno--cat">
+          <p class="bp__mono">CATEGORY</p>
+          <p class="bp__mono">IN PUBLIC</p>
+          <span class="bp__hatch" aria-hidden="true"></span>
+        </div>
+        <div class="bp__anno bp__anno--focus">
+          <p class="bp__mono bp__mono--key">FOCUS</p>
+          <p class="bp__mono">· 企业 AI</p>
+          <p class="bp__mono">· 副业增长</p>
+          <p class="bp__mono">· 学习系统</p>
+        </div>
+        <div class="bp__anno bp__anno--est">
+          <p class="bp__mono">EST. 2024</p>
+        </div>
+        <figcaption class="bp__coords">N 31° 14′ 49.44″&nbsp;&nbsp;&nbsp;&nbsp;E 121° 28′ 22.20″</figcaption>
+      </figure>
+    </div>
 
-      <section class="method section" id="method">
-        <p class="kicker">03 / BUILD AREA</p>
-        <h2>BUILD METHOD</h2>
-        <h3>我不从工具开始，而是从真实目标和业务流程开始。</h3>
-        <div class="terminal">
-          <div class="terminal__bar"><span>$ mooninai build --real-system</span><b>BUILD TERMINAL</b></div>
-          <pre>10:12:01  checking goals
+    <div class="about__right">
+      <div class="flow" data-reveal>
+        <div class="flow__node">
+          <span class="flow__zh">诊</span>
+          <span class="flow__en">DIAGNOSE</span>
+        </div>
+        <span class="flow__link"></span>
+        <div class="flow__node">
+          <span class="flow__zh">建</span>
+          <span class="flow__en">BUILD</span>
+        </div>
+        <span class="flow__link"></span>
+        <div class="flow__node">
+          <span class="flow__zh">跑</span>
+          <span class="flow__en">ITERATE</span>
+        </div>
+      </div>
+
+      <div class="signal" data-reveal>
+        <div class="signal__head">
+          <h3 class="signal__title">服务信号台</h3>
+          <span class="signal__legend"><b>LIVE</b> / 5 SIGNALS</span>
+        </div>
+        <ul class="signal__list">
+          <li class="srow srow--live">
+            <a href="#service">
+              <span class="srow__logo srow__logo--num"><b>01</b></span>
+              <span class="srow__handle">传统企业 AI 系统</span>
+              <span class="srow__count">LIVE</span>
+              <span class="srow__bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="srow__status"><i class="srow__dot"></i> LIVE</span>
+            </a>
+          </li>
+          <li class="srow srow--live">
+            <a href="#service">
+              <span class="srow__logo srow__logo--num"><b>02</b></span>
+              <span class="srow__handle">企业 AI 培训</span>
+              <span class="srow__count">LIVE</span>
+              <span class="srow__bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="srow__status"><i class="srow__dot"></i> LIVE</span>
+            </a>
+          </li>
+          <li class="srow srow--live">
+            <a href="#service">
+              <span class="srow__logo srow__logo--num"><b>03</b></span>
+              <span class="srow__handle">AI 学习规划</span>
+              <span class="srow__count">LIVE</span>
+              <span class="srow__bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="srow__status"><i class="srow__dot"></i> LIVE</span>
+            </a>
+          </li>
+          <li class="srow srow--live">
+            <a href="#service">
+              <span class="srow__logo srow__logo--num"><b>04</b></span>
+              <span class="srow__handle">副业搞钱</span>
+              <span class="srow__count">LIVE</span>
+              <span class="srow__bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="srow__status"><i class="srow__dot"></i> LIVE</span>
+            </a>
+          </li>
+          <li class="srow srow--live">
+            <a href="#service">
+              <span class="srow__logo srow__logo--num"><b>05</b></span>
+              <span class="srow__handle">自媒体增长陪跑</span>
+              <span class="srow__count">LIVE</span>
+              <span class="srow__bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="srow__status"><i class="srow__dot"></i> LIVE</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SERVICE ═══════════ -->
+  <section class="work" id="service">
+    <h2 class="work__title" data-reveal>Service Signals</h2>
+    <div class="work__cats" data-reveal>
+      <span class="cat cat--current"><b class="cat__zh">服</b> SERVICE — 5 个服务信号</span>
+    </div>
+
+    <div class="work__list">
+      <a class="wrow" href="#contact" data-reveal>
+        <span class="wrow__idx">01</span>
+        <div class="wrow__body">
+          <div class="wrow__meta"><span class="wrow__tag">FOR 传统企业老板 / 小团队</span><span class="wrow__date">STATUS : LIVE</span></div>
+          <h3 class="wrow__title">传统企业 AI 系统</h3>
+          <p class="wrow__dek">AI 工作台 / 知识库 / SOP / 话术系统。让 AI 进入真实业务流程，而不是停留在演示。</p>
+        </div>
+        <span class="wrow__rule"></span>
+        <span class="wrow__like"><span class="heart">◆</span> LIVE</span>
+        <span class="wrow__thumb" style="background:#1a1714;display:flex;align-items:center;justify-content:center;color:#F0652E;font-family:var(--serif);font-size:32px;">AI</span>
+        <span class="wrow__arr">→</span>
+      </a>
+      <a class="wrow" href="#contact" data-reveal>
+        <span class="wrow__idx">02</span>
+        <div class="wrow__body">
+          <div class="wrow__meta"><span class="wrow__tag">FOR 老板 / 管理层 / 销售 / 内容团队</span><span class="wrow__date">STATUS : LIVE</span></div>
+          <h3 class="wrow__title">企业 AI 培训</h3>
+          <p class="wrow__dek">培训任务包 / 提示词模板 / 内部案例库。基于岗位任务和真实业务场景设计。</p>
+        </div>
+        <span class="wrow__rule"></span>
+        <span class="wrow__like"><span class="heart">◆</span> LIVE</span>
+        <span class="wrow__thumb" style="background:#F0652E;display:flex;align-items:center;justify-content:center;color:#F4EFE6;font-family:var(--serif);font-size:32px;">TR</span>
+        <span class="wrow__arr">→</span>
+      </a>
+      <a class="wrow" href="#contact" data-reveal>
+        <span class="wrow__idx">03</span>
+        <div class="wrow__body">
+          <div class="wrow__meta"><span class="wrow__tag">FOR 新手 / 职场人 / 创作者</span><span class="wrow__date">STATUS : LIVE</span></div>
+          <h3 class="wrow__title">AI 学习规划</h3>
+          <p class="wrow__dek">学习路线 / 工具栈 / 实战项目。基于目标、时间、基础和项目方向定制。</p>
+        </div>
+        <span class="wrow__rule"></span>
+        <span class="wrow__like"><span class="heart">◆</span> LIVE</span>
+        <span class="wrow__thumb" style="background:#1a1714;display:flex;align-items:center;justify-content:center;color:#F0652E;font-family:var(--serif);font-size:32px;">LR</span>
+        <span class="wrow__arr">→</span>
+      </a>
+      <a class="wrow" href="#contact" data-reveal>
+        <span class="wrow__idx">04</span>
+        <div class="wrow__body">
+          <div class="wrow__meta"><span class="wrow__tag">FOR 想用 AI 做副业的人</span><span class="wrow__date">STATUS : LIVE</span></div>
+          <h3 class="wrow__title">副业搞钱</h3>
+          <p class="wrow__dek">副业项目 / 获客路径 / 交付设计。基于技能、资源、内容和服务能力拆解。</p>
+        </div>
+        <span class="wrow__rule"></span>
+        <span class="wrow__like"><span class="heart">◆</span> LIVE</span>
+        <span class="wrow__thumb" style="background:#F0652E;display:flex;align-items:center;justify-content:center;color:#F4EFE6;font-family:var(--serif);font-size:32px;">$</span>
+        <span class="wrow__arr">→</span>
+      </a>
+      <a class="wrow" href="#contact" data-reveal>
+        <span class="wrow__idx">05</span>
+        <div class="wrow__body">
+          <div class="wrow__meta"><span class="wrow__tag">FOR 创作者 / 个人 IP</span><span class="wrow__date">STATUS : LIVE</span></div>
+          <h3 class="wrow__title">自媒体增长陪跑</h3>
+          <p class="wrow__dek">选题库 / 发帖结构 / 复盘系统。基于定位、对标、选题和内容持续迭代。</p>
+        </div>
+        <span class="wrow__rule"></span>
+        <span class="wrow__like"><span class="heart">◆</span> LIVE</span>
+        <span class="wrow__thumb" style="background:#1a1714;display:flex;align-items:center;justify-content:center;color:#F0652E;font-family:var(--serif);font-size:32px;">MG</span>
+        <span class="wrow__arr">→</span>
+      </a>
+    </div>
+
+    <a class="work__all" href="#contact" data-reveal>聊聊哪个服务适合你 <span class="arr">→</span></a>
+  </section>
+
+  <!-- ═══════════ METHOD（深色）═══════════ -->
+  <section class="shoot" id="method">
+    <div class="shoot__stage" data-reveal>
+      <div class="shoot__topbar">
+        <span class="shoot__rec"><i></i> RUN · 00:00:00</span>
+        <span class="shoot__ep">METHOD · 构建中</span>
+      </div>
+      <div class="shoot__copy">
+        <h3 class="shoot__center">我不从工具开始<br />而是从真实目标和业务流程开始</h3>
+        <p class="shoot__soon">六步构建法 · 诊断 → 盘点 → 拆解 → AI 介入 → 陪跑 → 复盘</p>
+      </div>
+      <div class="shoot__player">
+        <span class="shoot__play">▶</span>
+        <span class="shoot__t">00:00</span>
+        <span class="shoot__track"><i></i></span>
+        <span class="shoot__pct">0%</span>
+      </div>
+    </div>
+    <div class="shoot__foot">
+      <div class="shoot__wordwrap">
+        <span class="shoot__kicker" data-reveal>法 — METHOD</span>
+        <h2 class="shoot__title" data-reveal>Build Method</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ BUILD ═══════════ -->
+  <section class="build" id="build">
+    <div class="build__git" aria-hidden="true">
+      <span class="git__branch">⊖&nbsp;&nbsp; main ——</span>
+      <span class="git__line"></span>
+      <span class="git__row"><i></i><b>a1b2c3d</b><em>feat: init workspace</em></span>
+      <span class="git__row"><i></i><b>d4e5f6a</b><em>feat: enterprise-ai-system</em></span>
+      <span class="git__row"><i></i><b>f7a8b9c</b><em>feat: ai-training-pack</em></span>
+      <span class="git__row git__row--head"><i></i><b>HEAD ——</b><em>build: in public</em></span>
+      <span class="git__row git__row--ghost"><i></i></span>
+      <span class="git__row git__row--ghost"><i></i></span>
+    </div>
+
+    <div class="build__left" data-reveal>
+      <span class="build__kicker">建 — BUILD</span>
+      <h2 class="build__title">Current Build</h2>
+      <p class="build__sub"><span class="dot"></span>公开建造中 · 把流程做成系统</p>
+      <a class="build__cta" href="https://github.com/chenjin-cmd/MoonInAI" target="_blank" rel="noopener"><span class="build__cta-text">关注我的 GitHub</span><svg class="github-mark" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.92.58.1.79-.25.79-.56v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18.92-.26 1.9-.38 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.42-2.69 5.38-5.25 5.67.42.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg><span class="arr">→</span></a>
+    </div>
+
+    <div class="build__terminal" data-build data-reveal>
+      <div class="term__bar">
+        <i></i><i></i><i></i>
+      </div>
+      <div class="term__body">
+        <pre class="term__code" data-typed aria-hidden="true">$ mooninai build --real-system
+10:12:01  checking goals
 10:12:02  mapping resources
 10:12:03  structuring knowledge
 10:12:05  connecting AI workflows
 10:12:07  testing in real tasks
-10:12:09  writing playbook</pre>
-          <div class="progress"><span>PROGRESS</span><b>83%</b><i></i><em>ETA 00:02:18</em></div>
-        </div>
-        <div class="pipeline">
-          <span>01<br />目标诊断</span>
-          <span>02<br />资源盘点</span>
-          <span>03<br />系统拆解</span>
-          <span>04<br />AI 介入</span>
-          <span>05<br />实战陪跑</span>
-          <span>06<br />复盘迭代</span>
-        </div>
-      </section>
-
-      <section class="build section" id="build">
-        <div class="build-copy">
-          <p class="kicker">04 / BUILD IN PUBLIC</p>
-          <h2>Current Build</h2>
-          <p>把想法做成流程，把流程做成系统，把系统继续迭代成长期资产。</p>
-        </div>
-        <div class="terminal terminal--compact">
-          <pre>v0.1.0 · compiling...
-queued {
-  enterprise-ai-system
-  ai-training
-  side-project-map
-  media-growth-loop
-}
-progress 64%</pre>
-        </div>
-      </section>
-
-      <section class="contact section" id="contact">
-        <div>
-          <p class="kicker">GET IN TOUCH / 联系</p>
-          <h2>Let’s talk.<br /><span>先聊聊你的问题。</span></h2>
-          <p>如果你想把 AI 用进真实目标里，可以先从一个具体问题开始。</p>
-        </div>
-        <div class="contact-links">
-          <a href="weixin://">WECHAT <strong>JZX_AI1203</strong> →</a>
-          <a href="https://x.com/MoonInAI" target="_blank" rel="noreferrer">X <strong>@MoonInAI</strong> →</a>
-          <div class="status">COOPERATION STATUS<br /><b>当前开放合作</b><span>· Available ·</span></div>
-        </div>
-      </section>
-
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee__track">
-          <span>AI 系统 · 企业培训 · 副业搞钱 · 学习规划 · 自媒体增长 · MoonInAI · </span>
-          <span>AI 系统 · 企业培训 · 副业搞钱 · 学习规划 · 自媒体增长 · MoonInAI · </span>
+10:12:09  writing playbook
+</pre>
+        <div class="term__compile">
+          <span class="term__ver">v0.1.0 · <span data-compile-label>compiling...</span></span>
+          <div class="term__bar2"><i data-progress-bar style="width:0%"></i></div>
+          <span class="term__pct" data-progress-num>0%</span>
         </div>
       </div>
-    </main>
-  </body>
+    </div>
+
+    <span class="build__plus" aria-hidden="true">+</span>
+    <div class="build__measure build__measure--area" aria-hidden="true">
+      <span></span><b>build area</b><em>960 × 540</em>
+    </div>
+    <div class="build__measure build__measure--progress" aria-hidden="true">
+      <span></span><b>progress</b><em data-progress-measure>0%</em>
+    </div>
+    <div class="build__queue" aria-hidden="true">
+      <span class="queue__label">queued</span>
+      <span class="queue__brace">{</span>
+      <ul>
+        <li>enterprise-ai-system</li>
+        <li>ai-training</li>
+        <li>side-project-map</li>
+        <li>media-growth-loop</li>
+      </ul>
+    </div>
+    <div class="build__ruler" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i>
+      <span>0</span><span>240</span><span>480</span><span>720</span><span>960</span>
+    </div>
+  </section>
+
+  <!-- ═══════════ CONTACT ═══════════ -->
+  <section class="contact" id="contact">
+    <div class="contact__center">
+      <div class="contact__kicker" data-reveal><span class="ln"></span>GET IN TOUCH / 联系<span class="ln"></span></div>
+      <h2 class="contact__title" data-reveal>
+        Let&rsquo;s talk.
+        <svg class="contact__underline" viewBox="0 0 360 18" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M12 13 Q 180 3, 348 11" fill="none" stroke="#F0652E" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </h2>
+      <p class="contact__sub" data-reveal>如果你想把 AI 用进真实目标里，可以先从一个具体问题开始。</p>
+      <p class="contact__status" data-reveal><span class="pulse"></span>当前开放合作 · Available</p>
+    </div>
+
+    <div class="contact__marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__set">AI 系统 · 企业培训 · 副业搞钱 · 学习规划 · 自媒体增长 · build in public · AI 系统 · 企业培训 · 副业搞钱 · 学习规划 · 自媒体增长 · build in public · AI 系统 · 企业培训 · 副业搞钱 · 学习规划 · 自媒体增长 · build in public · </span>
+        <span class="marquee__set">AI 系统 · 企业培训 · 副业搞钱 · 学习规划 · 自媒体增长 · build in public · AI 系统 · 企业培训 · 副业搞钱 · 学习规划 · 自媒体增长 · build in public · AI 系统 · 企业培训 · 副业搞钱 · 学习规划 · 自媒体增长 · build in public · </span>
+      </div>
+    </div>
+
+    <div class="contact__bar">
+      <a class="cbar__item cbar__item--mail" href="weixin://">
+        <span class="cbar__lbl">WECHAT</span>
+        <span class="cbar__val cbar__val--mail">JZX_AI1203</span>
+        <span class="cbar__arr">→</span>
+      </a>
+      <a class="cbar__item" href="https://x.com/MoonInAI" target="_blank" rel="noopener">
+        <span class="cbar__logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#111" d="M18.9 2H22l-7.3 8.3L23.3 22h-6.8l-5-6.6L5.7 22H2.6l7.8-8.9L1.3 2h6.9l4.5 6 6.2-6Zm-1.2 18h1.7L7 3.8H5.2L17.7 20Z"/></svg></span>
+        <span class="cbar__val">@MoonInAI <em>· DM</em></span>
+        <span class="cbar__arr">→</span>
+      </a>
+      <a class="cbar__item" href="https://github.com/chenjin-cmd/MoonInAI" target="_blank" rel="noopener">
+        <span class="cbar__logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#111" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.92.58.1.79-.25.79-.56v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18.92-.26 1.9-.38 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.42-2.69 5.38-5.25 5.67.42.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg></span>
+        <span class="cbar__val">chenjin-cmd <em>· source</em></span>
+        <span class="cbar__arr">→</span>
+      </a>
+      <div class="cbar__item cbar__item--wechat">
+        <span class="cbar__lbl">合作状态</span>
+        <div class="qr" aria-label="当前开放合作">
+          <span class="qr__cross qr__cross--tl"></span><span class="qr__cross qr__cross--br"></span>
+          <span class="qr__icon" style="font-family:var(--serif);font-size:28px;color:#F0652E;">◆</span>
+          <span class="qr__txt">开放合作</span>
+        </div>
+        <span class="cbar__soon">Available</span>
+      </div>
+    </div>
+
+    <footer class="contact__foot">
+      <span>© 2026 MoonInAI · build in public</span>
+      <a href="#hero" class="to-top">回到顶部 <span class="arr">↑</span></a>
+    </footer>
+  </section>
+
+</main>
+
+<script src="./script.js" defer></script>
+</body>
 </html>
