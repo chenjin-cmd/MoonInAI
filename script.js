@@ -214,7 +214,41 @@
     });
   }
 
-  /* ---------- 05 录制时间码跳动 ---------- */
+  /* ---------- 05 移动端全屏导航 ---------- */
+  function initMobileMenu() {
+    var toggle = document.querySelector(".nav__menu-toggle");
+    var menu = document.getElementById("mobileMenu");
+    if (!toggle || !menu) return;
+
+    var close = menu.querySelector(".mobile-menu__close");
+    var links = menu.querySelectorAll("a");
+
+    function setOpen(open, restoreFocus) {
+      document.documentElement.classList.toggle("menu-is-open", open);
+      document.body.classList.toggle("menu-is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      menu.setAttribute("aria-hidden", String(!open));
+
+      if (open) {
+        links[0].focus();
+      } else if (restoreFocus) {
+        toggle.focus();
+      }
+    }
+
+    toggle.addEventListener("click", function () { setOpen(true, false); });
+    close.addEventListener("click", function () { setOpen(false, true); });
+    links.forEach(function (link) {
+      link.addEventListener("click", function () { setOpen(false, false); });
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        setOpen(false, true);
+      }
+    });
+  }
+
+  /* ---------- 06 录制时间码跳动 ---------- */
   function initRecTime() {
     if (prefersReduced) return;
     var rec = document.querySelector(".shoot__rec");
@@ -229,7 +263,7 @@
     }, 1000);
   }
 
-  /* ---------- 06 AI 神经核心可视化 ---------- */
+  /* ---------- 07 AI 神经核心可视化 ---------- */
   function initNeuroCore() {
     var svg = document.querySelector(".neuro__svg");
     if (!svg) return;
@@ -427,6 +461,7 @@
 
   /* ---------- 启动 ---------- */
   function boot() {
+    initMobileMenu();
     initReveal();
     initSignalBars();
     initTerminal();

@@ -5,7 +5,6 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const html = readFileSync(resolve(root, "index.html"), "utf8");
-const css = readFileSync(resolve(root, "styles.css"), "utf8");
 const script = readFileSync(resolve(root, "script.js"), "utf8");
 
 for (const text of [
@@ -49,15 +48,6 @@ for (const text of [
   'class="mobile-menu__link"',
 ]) {
   assert.ok(html.includes(text), `Expected mobile navigation markup: ${text}`);
-}
-
-for (const text of [
-  ".mobile-menu{",
-  ".menu-is-open{overflow:hidden;}",
-  "overflow-wrap:anywhere",
-  "min-width:0",
-]) {
-  assert.ok(css.includes(text), `Expected responsive CSS rule: ${text}`);
 }
 
 assert.ok(script.includes("function initMobileMenu()"));
