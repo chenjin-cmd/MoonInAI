@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MoonInAI · 自我介绍海报</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Noto+Serif+SC:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F4EFE6;
+    --ink:#1A1714;
+    --accent:#F0652E;
+    --line:#C9C0B2;
+    --serif:'Playfair Display','Noto Serif SC',serif;
+    --sans:'Inter','Noto Sans SC',sans-serif;
+    --mono:'JetBrains Mono','Inter',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#2a2622;display:flex;justify-content:center;padding:24px;}
+  .poster{
+    width:1080px;height:1440px;
+    background:var(--paper);
+    position:relative;color:var(--ink);
+    font-family:var(--sans);
+    overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.5);
+  }
+  /* 纸纹噪点 */
+  .poster::before{
+    content:"";position:absolute;inset:0;z-index:60;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    mix-blend-mode:multiply;opacity:.55;
+  }
+  /* 左侧韵律线 */
+  .rail{position:absolute;left:34px;top:0;bottom:0;width:18px;z-index:40;}
+  .rail i{position:absolute;top:0;bottom:0;width:1px;background:var(--line);opacity:.7;}
+  .rail i:nth-child(1){left:0;}
+  .rail i:nth-child(2){left:8px;opacity:.45;}
+  .rail i:nth-child(3){left:16px;opacity:.25;}
+
+  /* 四角准星 */
+  .cross{position:absolute;width:30px;height:30px;z-index:45;}
+  .cross::before,.cross::after{content:"";position:absolute;background:var(--line);}
+  .cross::before{left:50%;top:0;width:1px;height:100%;}
+  .cross::after{top:50%;left:0;height:1px;width:100%;}
+  .cross--tl{left:46px;top:46px;}
+  .cross--tr{right:46px;top:46px;}
+  .cross--bl{left:46px;bottom:46px;}
+  .cross--br{right:46px;bottom:46px;}
+
+  .frame{position:absolute;inset:70px;z-index:10;display:flex;flex-direction:column;}
+
+  /* ── 顶部 meta 条 ── */
+  .meta{display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:var(--ink);
+    padding-bottom:14px;border-bottom:1.5px solid var(--ink);}
+  .meta .rec{display:flex;align-items:center;gap:8px;font-weight:700;}
+  .meta .rec i{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block;animation:blink 1.4s infinite;}
+  .meta .right{color:#7a7066;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:.25;}}
+
+  /* ── 头部 ── */
+  .head{display:flex;gap:40px;padding:38px 0 30px;align-items:center;}
+  .head__left{flex:1;}
+  .kicker{display:flex;align-items:center;gap:9px;font-family:var(--mono);
+    font-size:15px;letter-spacing:.08em;color:var(--accent);font-weight:500;margin-bottom:14px;}
+  .kicker .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);}
+  .wordmark{font-family:var(--serif);font-weight:600;font-size:128px;line-height:.82;
+    letter-spacing:-.02em;position:relative;}
+  .wordmark .u{display:inline-block;position:relative;}
+  .wordmark .u::after{content:"";position:absolute;left:0;bottom:.06em;width:100%;height:.05em;background:var(--accent);}
+  .tagline{font-family:var(--serif);font-weight:500;font-size:30px;margin-top:18px;letter-spacing:.01em;}
+  .sub{font-family:var(--sans);font-weight:300;font-size:18px;line-height:1.7;color:#4a443d;margin-top:12px;}
+  .identity{display:inline-flex;align-items:center;gap:10px;margin-top:20px;
+    border:1.5px solid var(--ink);padding:10px 18px;font-family:var(--mono);
+    font-size:15px;letter-spacing:.04em;font-weight:500;}
+  .identity b{color:var(--accent);}
+
+  /* 蓝图头像卡 */
+  .blueprint{position:relative;width:300px;height:300px;flex:none;border:1.5px solid var(--line);background:rgba(255,255,255,.25);}
+  .blueprint img{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);object-fit:cover;filter:grayscale(.2) contrast(1.05);}
+  .blueprint .t{position:absolute;width:22px;height:22px;border:1.5px solid var(--accent);}
+  .blueprint .t--tl{left:-1px;top:-1px;border-right:none;border-bottom:none;}
+  .blueprint .t--tr{right:-1px;top:-1px;border-left:none;border-bottom:none;}
+  .blueprint .t--bl{left:-1px;bottom:-1px;border-right:none;border-top:none;}
+  .blueprint .t--br{right:-1px;bottom:-1px;border-left:none;border-top:none;}
+  .blueprint .anno{position:absolute;font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:#6b6258;}
+  .blueprint .anno--tl{left:-2px;top:-30px;color:var(--accent);font-weight:700;}
+  .blueprint .anno--spec{right:-2px;bottom:34px;text-align:right;}
+  .blueprint .plus{position:absolute;color:var(--accent);font-family:var(--mono);font-size:14px;}
+  .blueprint .p1{left:18px;top:26px;}.blueprint .p2{right:22px;bottom:30px;}
+
+  /* ── 服务区 ── */
+  .section-h{display:flex;align-items:baseline;gap:14px;margin:8px 0 18px;}
+  .section-h .idx{font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:700;letter-spacing:.1em;}
+  .section-h h2{font-family:var(--serif);font-weight:600;font-size:34px;letter-spacing:-.01em;}
+  .section-h .en{font-family:var(--mono);font-size:13px;color:#8a8076;letter-spacing:.12em;margin-left:auto;}
+  .hr{height:1.5px;background:var(--ink);margin-bottom:6px;}
+
+  .services{display:flex;flex-direction:column;}
+  .srow{display:grid;grid-template-columns:64px 1fr auto;gap:22px;align-items:center;
+    padding:18px 4px;border-bottom:1px solid var(--line);}
+  .srow__num{font-family:var(--serif);font-weight:700;font-size:40px;color:var(--accent);line-height:1;}
+  .srow__title{font-family:var(--sans);font-weight:500;font-size:23px;margin-bottom:6px;}
+  .srow__tag{font-family:var(--mono);font-size:12.5px;color:#7a7066;letter-spacing:.03em;}
+  .srow__dek{font-family:var(--sans);font-weight:300;font-size:14.5px;color:#4a443d;margin-top:5px;line-height:1.5;}
+  .srow__right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+  .srow__live{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--accent);font-weight:700;display:flex;align-items:center;gap:6px;}
+  .srow__live i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;animation:blink 1.4s infinite;}
+  .bars{display:flex;align-items:flex-end;gap:3px;height:22px;}
+  .bars i{width:4px;background:var(--ink);opacity:.55;border-radius:1px;}
+  .bars i:nth-child(1){height:40%;}.bars i:nth-child(2){height:70%;}
+  .bars i:nth-child(3){height:55%;}.bars i:nth-child(4){height:90%;}
+  .bars i:nth-child(5){height:65%;}.bars i:nth-child(6){height:100%;}.bars i:nth-child(7){height:48%;}
+
+  /* ── 方法区 ── */
+  .method{margin-top:26px;}
+  .steps{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:6px;}
+  .step{display:flex;flex-direction:column;align-items:center;gap:10px;flex:1;}
+  .step__circle{width:62px;height:62px;border-radius:50%;border:1.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:26px;background:var(--paper);}
+  .step:nth-child(odd) .step__circle{background:var(--ink);color:var(--paper);}
+  .step__en{font-family:var(--mono);font-size:10.5px;color:#8a8076;letter-spacing:.06em;}
+  .step__zh{font-family:var(--sans);font-weight:500;font-size:15px;}
+  .step__arrow{color:var(--accent);font-family:var(--mono);font-size:20px;flex:none;}
+
+  /* ── 页脚 ── */
+  .foot{margin-top:auto;border-top:1.5px solid var(--ink);padding-top:22px;
+    display:flex;justify-content:space-between;align-items:flex-end;gap:24px;}
+  .contact{display:flex;flex-direction:column;gap:13px;font-family:var(--mono);font-size:14px;}
+  .contact .c{display:flex;align-items:center;gap:10px;letter-spacing:.04em;}
+  .contact .c b{color:var(--accent);font-weight:700;min-width:74px;display:inline-block;}
+  .contact .c span{color:var(--ink);}
+  .status{display:flex;align-items:center;gap:9px;margin-top:4px;font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:700;}
+  .status .pulse{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(240,101,46,.6);animation:pulse 1.8s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(240,101,46,.6);}70%{box-shadow:0 0 0 12px rgba(240,101,46,0);}100%{box-shadow:0 0 0 0 rgba(240,101,46,0);}}
+  .qr{width:128px;height:128px;border:1.5px solid var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:rgba(255,255,255,.3);position:relative;}
+  .qr .qx{position:absolute;width:18px;height:18px;border:1.5px solid var(--accent);}
+  .qr .qx--tl{left:-1px;top:-1px;border-right:none;border-bottom:none;}
+  .qr .qx--br{right:-1px;bottom:-1px;border-left:none;border-top:none;}
+  .qr .icon{font-family:var(--serif);font-size:30px;color:var(--accent);}
+  .qr .txt{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:#6b6258;}
+  .copyright{position:absolute;bottom:30px;left:70px;right:70px;text-align:center;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:#9a9086;z-index:10;}
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="rail" aria-hidden="true"><i></i><i></i><i></i></div>
+    <span class="cross cross--tl" aria-hidden="true"></span>
+    <span class="cross cross--tr" aria-hidden="true"></span>
+    <span class="cross cross--bl" aria-hidden="true"></span>
+    <span class="cross cross--br" aria-hidden="true"></span>
+
+    <div class="frame">
+      <!-- 顶部 meta -->
+      <div class="meta">
+        <span class="rec"><i></i> ID // MOONINAI · 自我介绍</span>
+        <span class="right">SELF-INTRO / v1.0 · EST. 2024</span>
+      </div>
+
+      <!-- 头部 -->
+      <div class="head">
+        <div class="head__left">
+          <p class="kicker"><span class="dot"></span> AI 系统 × build in public</p>
+          <h1 class="wordmark"><span class="u">MoonInAI</span></h1>
+          <p class="tagline">用 AI 改造真实业务</p>
+          <p class="sub">用系统拆解学习、副业和增长。<br/>让 AI 进入每天的销售、内容、资料整理与复盘。</p>
+          <div class="identity">传统企业 <b>AI 系统顾问</b> / AI <b>副业陪跑者</b></div>
+        </div>
+
+        <figure class="blueprint" aria-label="MoonInAI 头像">
+          <span class="anno anno--tl">AI SYSTEM / CONSULTANT</span>
+          <span class="anno anno--spec">SPEC.001<br/>FOCUS : AI SYSTEM<br/>FORMAT: 顾问 / 培训</span>
+          <span class="plus p1">+</span>
+          <span class="plus p2">+</span>
+          <span class="t t--tl"></span><span class="t t--tr"></span>
+          <span class="t t--bl"></span><span class="t t--br"></span>
+          <img src="./assets/mmexport1779008582137..jpg" alt="MoonInAI" />
+        </figure>
+      </div>
+
+      <!-- 服务 -->
+      <div class="section-h">
+        <span class="idx">01</span>
+        <h2>服务信号</h2>
+        <span class="en">SERVICE SIGNALS — 5 SIGNALS</span>
+      </div>
+      <div class="hr"></div>
+      <div class="services">
+        <div class="srow">
+          <span class="srow__num">01</span>
+          <div>
+            <div class="srow__title">传统企业 AI 系统</div>
+            <div class="srow__tag">FOR 传统企业老板 / 小团队</div>
+            <div class="srow__dek">AI 工作台 / 知识库 / SOP / 话术系统，让 AI 进入真实业务流程。</div>
+          </div>
+          <div class="srow__right">
+            <span class="srow__live"><i></i> LIVE</span>
+            <span class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+        </div>
+        <div class="srow">
+          <span class="srow__num">02</span>
+          <div>
+            <div class="srow__title">企业 AI 培训</div>
+            <div class="srow__tag">FOR 老板 / 管理层 / 销售 / 内容团队</div>
+            <div class="srow__dek">培训任务包 / 提示词模板 / 内部案例库，基于真实业务场景设计。</div>
+          </div>
+          <div class="srow__right">
+            <span class="srow__live"><i></i> LIVE</span>
+            <span class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+        </div>
+        <div class="srow">
+          <span class="srow__num">03</span>
+          <div>
+            <div class="srow__title">AI 学习规划</div>
+            <div class="srow__tag">FOR 新手 / 职场人 / 创作者</div>
+            <div class="srow__dek">学习路线 / 工具栈 / 实战项目，基于目标、时间和基础定制。</div>
+          </div>
+          <div class="srow__right">
+            <span class="srow__live"><i></i> LIVE</span>
+            <span class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+        </div>
+        <div class="srow">
+          <span class="srow__num">04</span>
+          <div>
+            <div class="srow__title">副业搞钱</div>
+            <div class="srow__tag">FOR 想用 AI 做副业的人</div>
+            <div class="srow__dek">副业项目 / 获客路径 / 交付设计，基于技能与资源拆解。</div>
+          </div>
+          <div class="srow__right">
+            <span class="srow__live"><i></i> LIVE</span>
+            <span class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+        </div>
+        <div class="srow">
+          <span class="srow__num">05</span>
+          <div>
+            <div class="srow__title">AI线下沙龙</div>
+            <div class="srow__tag">FOR 想链接 AI 圈层的人</div>
+            <div class="srow__dek">主题分享 / 闭门交流 / 资源链接，基于主题与场景深度对接。</div>
+          </div>
+          <div class="srow__right">
+            <span class="srow__live"><i></i> LIVE</span>
+            <span class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 方法 -->
+      <div class="method">
+        <div class="section-h">
+          <span class="idx">02</span>
+          <h2>构建法</h2>
+          <span class="en">BUILD METHOD — 六步</span>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="step__circle">诊</div><span class="step__zh">诊断</span><span class="step__en">DIAGNOSE</span></div>
+          <span class="step__arrow">→</span>
+          <div class="step"><div class="step__circle">盘</div><span class="step__zh">盘点</span><span class="step__en">AUDIT</span></div>
+          <span class="step__arrow">→</span>
+          <div class="step"><div class="step__circle">拆</div><span class="step__zh">拆解</span><span class="step__en">DECOMPOSE</span></div>
+          <span class="step__arrow">→</span>
+          <div class="step"><div class="step__circle">AI</div><span class="step__zh">AI 介入</span><span class="step__en">DEPLOY</span></div>
+          <span class="step__arrow">→</span>
+          <div class="step"><div class="step__circle">陪</div><span class="step__zh">陪跑</span><span class="step__en">COACH</span></div>
+          <span class="step__arrow">→</span>
+          <div class="step"><div class="step__circle">复</div><span class="step__zh">复盘</span><span class="step__en">REVIEW</span></div>
+        </div>
+      </div>
+
+      <!-- 页脚 -->
+      <div class="foot">
+        <div class="contact">
+          <div class="c"><b>WECHAT</b><span>JZX_AI1203</span></div>
+          <div class="c"><b>X / TWITTER</b><span>@MoonInAI</span></div>
+          <div class="c"><b>GITHUB</b><span>chenjin-cmd</span></div>
+          <div class="status"><span class="pulse"></span> 当前开放合作 · Available</div>
+        </div>
+        <div class="qr" aria-label="开放合作">
+          <span class="qx qx--tl"></span><span class="qx qx--br"></span>
+          <span class="icon">◆</span>
+          <span class="txt">开放合作</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">© 2026 MoonInAI · build in public · mooninai.top</div>
+  </div>
+</body>
+</html>

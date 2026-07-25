@@ -13,12 +13,12 @@ for (const text of [
   "企业 AI 培训",
   "AI 学习规划",
   "副业搞钱",
-  "自媒体增长陪跑",
+  "AI线下沙龙",
   "$ mooninai build --real-system",
   "JZX_AI1203",
   "@MoonInAI",
   "./assets/mmexport1779008582137..jpg",
-  "data-portrait",
+  "neuro__canvas",
 ]) {
   assert.ok(html.includes(text), `Expected index.html to include: ${text}`);
 }
@@ -31,7 +31,7 @@ for (const removedHeroText of [
   "企业 AI 培训</span><b>LIVE",
   "AI 学习规划</span><b>LIVE",
   "副业搞钱</span><b>LIVE",
-  "自媒体增长陪跑</span><b>LIVE",
+  "AI线下沙龙</span><b>LIVE",
 ]) {
   assert.ok(!hero.includes(removedHeroText), `Hero should not include: ${removedHeroText}`);
 }
