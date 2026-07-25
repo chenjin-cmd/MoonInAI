@@ -5,6 +5,8 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const html = readFileSync(resolve(root, "index.html"), "utf8");
+const css = readFileSync(resolve(root, "styles.css"), "utf8");
+const script = readFileSync(resolve(root, "script.js"), "utf8");
 
 for (const text of [
   "MoonInAI",
@@ -39,3 +41,24 @@ for (const removedHeroText of [
 assert.ok(!html.includes("portrait__ring"), "Hero should not include the outer portrait ring");
 assert.ok(!html.includes("portrait__particles"), "Hero should not include portrait particles");
 assert.ok(!html.includes("./main.js"), "Hero should render the portrait image without particle JavaScript");
+
+for (const text of [
+  'class="nav__menu-toggle"',
+  'aria-controls="mobileMenu"',
+  'id="mobileMenu"',
+  'class="mobile-menu__link"',
+]) {
+  assert.ok(html.includes(text), `Expected mobile navigation markup: ${text}`);
+}
+
+for (const text of [
+  ".mobile-menu{",
+  ".menu-is-open{overflow:hidden;}",
+  "overflow-wrap:anywhere",
+  "min-width:0",
+]) {
+  assert.ok(css.includes(text), `Expected responsive CSS rule: ${text}`);
+}
+
+assert.ok(script.includes("function initMobileMenu()"));
+assert.ok(script.includes("initMobileMenu();"));
