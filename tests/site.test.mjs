@@ -12,7 +12,7 @@ for (const text of [
   "MoonInAI",
   "传统企业 AI 系统顾问 / AI 副业陪跑者",
   "传统企业 AI 系统",
-  "企业 AI 培训",
+  "AI 工作流 / 智能体定制",
   "AI 新手入门课程",
   "副业搞钱",
   "AI线下沙龙",
@@ -30,7 +30,7 @@ for (const removedHeroText of [
   "信号台 / SERVICE SIGNALS",
   "LIVE FEED",
   "企业 AI 系统</span><b>LIVE",
-  "企业 AI 培训</span><b>LIVE",
+  "AI 工作流 / 智能体定制</span><b>LIVE",
   "AI 新手入门课程</span><b>LIVE",
   "副业搞钱</span><b>LIVE",
   "AI线下沙龙</span><b>LIVE",
@@ -92,13 +92,17 @@ for (const url of [
 
 for (const [page, h1, title] of [
   [systemPage, "广东传统企业 AI 系统", "广东传统企业 AI 系统｜MoonInAI"],
-  [trainingPage, "广东企业 AI 培训", "广东企业 AI 培训｜MoonInAI"],
+  [trainingPage, "广东 AI 工作流 / 智能体定制", "广东 AI 工作流 / 智能体定制｜MoonInAI"],
 ]) {
   assert.ok(page.includes(`<title>${title}</title>`));
   assert.ok(page.includes(`<h1>${h1}</h1>`));
   assert.ok(page.includes('<link rel="canonical"'));
   assert.ok(page.includes("扫码添加微信"));
 }
+
+assert.ok(!html.includes("企业 AI 培训"));
+assert.ok(trainingPage.includes("业务诊断"));
+assert.ok(trainingPage.includes("智能体配置"));
 
 assert.ok(!html.includes("AI 学习规划"));
 assert.ok(html.includes("AI 新手入门课程"));
