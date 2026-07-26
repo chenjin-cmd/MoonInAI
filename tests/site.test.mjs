@@ -67,6 +67,8 @@ const robots = readFileSync(resolve(root, "robots.txt"), "utf8");
 const sitemap = readFileSync(resolve(root, "sitemap.xml"), "utf8");
 const systemPage = readFileSync(resolve(root, "guangdong-ai-system.html"), "utf8");
 const trainingPage = readFileSync(resolve(root, "guangdong-ai-training.html"), "utf8");
+const salonPage = readFileSync(resolve(root, "guangdong-ai-salon.html"), "utf8");
+const beginnerPage = readFileSync(resolve(root, "guangdong-ai-beginner-course.html"), "utf8");
 
 for (const text of [
   '<link rel="canonical" href="https://mooninai.top/"',
@@ -97,3 +99,27 @@ for (const [page, h1, title] of [
   assert.ok(page.includes('<link rel="canonical"'));
   assert.ok(page.includes("扫码添加微信"));
 }
+
+assert.ok(!html.includes("AI 学习规划"));
+assert.ok(html.includes("AI 新手入门课程"));
+for (const text of ["./guangdong-ai-salon.html", "./guangdong-ai-beginner-course.html"]) {
+  assert.ok(html.includes(text), `Expected homepage service link: ${text}`);
+}
+
+for (const [page, h1, title] of [
+  [salonPage, "广东 AI 线下沙龙", "广东 AI 线下沙龙｜MoonInAI"],
+  [beginnerPage, "广东 AI 新手入门课程", "广东 AI 新手入门课程｜MoonInAI"],
+]) {
+  assert.ok(page.includes(`<title>${title}</title>`));
+  assert.ok(page.includes(`<h1>${h1}</h1>`));
+  assert.ok(page.includes('<link rel="canonical"'));
+  assert.ok(page.includes("扫码添加微信"));
+}
+
+for (const url of [
+  "https://mooninai.top/guangdong-ai-salon.html",
+  "https://mooninai.top/guangdong-ai-beginner-course.html",
+]) {
+  assert.ok(sitemap.includes(`<loc>${url}</loc>`), `Expected sitemap URL: ${url}`);
+}
+assert.equal((sitemap.match(/<loc>/g) || []).length, 5);
