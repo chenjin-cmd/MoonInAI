@@ -13,7 +13,7 @@ for (const text of [
   "传统企业 AI 系统顾问 / AI 副业陪跑者",
   "传统企业 AI 系统",
   "企业 AI 培训",
-  "AI 学习规划",
+  "AI 新手入门课程",
   "副业搞钱",
   "AI线下沙龙",
   "$ mooninai build --real-system",
@@ -31,7 +31,7 @@ for (const removedHeroText of [
   "LIVE FEED",
   "企业 AI 系统</span><b>LIVE",
   "企业 AI 培训</span><b>LIVE",
-  "AI 学习规划</span><b>LIVE",
+  "AI 新手入门课程</span><b>LIVE",
   "副业搞钱</span><b>LIVE",
   "AI线下沙龙</span><b>LIVE",
 ]) {
