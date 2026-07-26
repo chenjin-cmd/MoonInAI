@@ -62,3 +62,38 @@ for (const text of [
 ]) {
   assert.ok(css.includes(text), `Expected responsive CSS rule: ${text}`);
 }
+
+const robots = readFileSync(resolve(root, "robots.txt"), "utf8");
+const sitemap = readFileSync(resolve(root, "sitemap.xml"), "utf8");
+const systemPage = readFileSync(resolve(root, "guangdong-ai-system.html"), "utf8");
+const trainingPage = readFileSync(resolve(root, "guangdong-ai-training.html"), "utf8");
+
+for (const text of [
+  '<link rel="canonical" href="https://mooninai.top/"',
+  'property="og:type" content="website"',
+  '"@type":"WebSite"',
+  '"@type":"Organization"',
+  './guangdong-ai-system.html',
+  './guangdong-ai-training.html',
+]) {
+  assert.ok(html.includes(text), `Expected homepage SEO content: ${text}`);
+}
+
+assert.equal(robots.trim(), "User-agent: *\nAllow: /\n\nSitemap: https://mooninai.top/sitemap.xml");
+for (const url of [
+  "https://mooninai.top/",
+  "https://mooninai.top/guangdong-ai-system.html",
+  "https://mooninai.top/guangdong-ai-training.html",
+]) {
+  assert.ok(sitemap.includes(`<loc>${url}</loc>`), `Expected sitemap URL: ${url}`);
+}
+
+for (const [page, h1, title] of [
+  [systemPage, "广东传统企业 AI 系统", "广东传统企业 AI 系统｜MoonInAI"],
+  [trainingPage, "广东企业 AI 培训", "广东企业 AI 培训｜MoonInAI"],
+]) {
+  assert.ok(page.includes(`<title>${title}</title>`));
+  assert.ok(page.includes(`<h1>${h1}</h1>`));
+  assert.ok(page.includes('<link rel="canonical"'));
+  assert.ok(page.includes("扫码添加微信"));
+}
