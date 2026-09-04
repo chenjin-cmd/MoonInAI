@@ -127,3 +127,17 @@ for (const url of [
   assert.ok(sitemap.includes(`<loc>${url}</loc>`), `Expected sitemap URL: ${url}`);
 }
 assert.equal((sitemap.match(/<loc>/g) || []).length, 5);
+
+for (const [repo, stars, forks] of [
+  ["xhs-virtual-product", "648", "73"],
+  ["agent-skills-launch-pack_", "551", "79"],
+  ["wechat-miniprogram-builder", "312", "38"],
+]) {
+  assert.ok(html.includes(repo), `Expected GitHub showcase repository: ${repo}`);
+  assert.ok(html.includes(`★ ${stars}`), `Expected visible star count for ${repo}`);
+  assert.ok(html.includes(`${forks} FORKS`), `Expected fork count for ${repo}`);
+  assert.ok(html.includes(`https://github.com/chenjin-cmd/${repo}`), `Expected repository link for ${repo}`);
+}
+
+assert.ok(html.includes('class="proof"'), "Expected Proof of Work section");
+assert.ok(html.includes("1,511 STARS"), "Expected aggregate star count");
