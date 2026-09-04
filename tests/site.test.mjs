@@ -55,6 +55,14 @@ for (const text of [
   assert.ok(html.includes(text), `Expected mobile navigation markup: ${text}`);
 }
 
+for (const text of [
+  './assets/favicon-32.png',
+  './assets/favicon-180.png',
+  './assets/favicon.ico',
+]) {
+  assert.ok(html.includes(text), `Expected favicon reference: ${text}`);
+}
+
 assert.ok(script.includes("function initMobileMenu()"));
 assert.ok(script.includes("initMobileMenu();"));
 
