@@ -10,7 +10,11 @@ const script = readFileSync(resolve(root, "script.js"), "utf8");
 
 for (const text of [
   "MoonInAI",
-  "传统企业 AI 系统顾问 / AI 副业陪跑者",
+  "00后潮汕人｜泽行智远创始人｜千问办公大使",
+  "六年自媒体实战经验，副业服务超1000人",
+  "开源Skil全网转发量1.2万，累计Star破千",
+  "正在用AI为一百个传统行业赋能(寻找共创伙伴中)",
+  "提供AI新手入门/智能体工作流定制/企业AI赋能/大湾区AI 线下沙龙",
   "传统企业 AI 系统",
   "AI 工作流 / 智能体定制",
   "AI 新手入门课程",
