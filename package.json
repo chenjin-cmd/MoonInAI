@@ -5,6 +5,6 @@
   "type": "module",
   "scripts": {
     "serve": "python3 -m http.server 4173 --bind 127.0.0.1",
-    "test": "node tests/site.test.mjs"
+    "test": "node tests/site.test.mjs && node --test tests/motion.test.mjs"
   }
 }

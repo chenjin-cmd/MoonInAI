@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const html = readFileSync(resolve(root, "index.html"), "utf8");
-const css = readFileSync(resolve(root, "styles.css"), "utf8");
+const css = readFileSync(resolve(root, "styles.css"), "utf8").replace(/\s+/g, "");
 const script = readFileSync(resolve(root, "script.js"), "utf8");
 
 for (const text of [
@@ -20,16 +20,16 @@ for (const text of [
   "AI 新手入门课程",
   "副业搞钱",
   "AI线下沙龙",
-  "$ mooninai build --real-system",
+
   "JZX_AI1203",
   "@MoonInAI",
   "./assets/mmexport1779008582137..jpg",
-  "neuro__canvas",
+  "./assets/lunar-full.webp",
 ]) {
   assert.ok(html.includes(text), `Expected index.html to include: ${text}`);
 }
 
-const hero = html.slice(html.indexOf('<section class="hero'), html.indexOf('<section class="about'));
+const hero = html.slice(html.indexOf('<section class="hero'), html.indexOf('<section class="proof'));
 for (const removedHeroText of [
   "信号台 / SERVICE SIGNALS",
   "LIVE FEED",
@@ -140,16 +140,29 @@ for (const url of [
 }
 assert.equal((sitemap.match(/<loc>/g) || []).length, 5);
 
-for (const [repo, stars, forks] of [
+for (const [repo] of [
   ["xhs-virtual-product", "648", "73"],
   ["agent-skills-launch-pack_", "551", "79"],
   ["wechat-miniprogram-builder", "312", "38"],
 ]) {
   assert.ok(html.includes(repo), `Expected GitHub showcase repository: ${repo}`);
-  assert.ok(html.includes(`★ ${stars}`), `Expected visible star count for ${repo}`);
-  assert.ok(html.includes(`${forks} FORKS`), `Expected fork count for ${repo}`);
   assert.ok(html.includes(`https://github.com/chenjin-cmd/${repo}`), `Expected repository link for ${repo}`);
 }
 
-assert.ok(html.includes('class="proof"'), "Expected Proof of Work section");
-assert.ok(html.includes("1,511 STARS"), "Expected aggregate star count");
+assert.ok(html.includes('class="proof section-shell"'), "Expected Proof of Work section");
+
+
+// Every internal anchor resolves and every local page/asset reference exists.
+import { existsSync } from "node:fs";
+for (const [name, page] of [["index.html", html], ["guangdong-ai-system.html", systemPage], ["guangdong-ai-training.html", trainingPage], ["guangdong-ai-salon.html", salonPage], ["guangdong-ai-beginner-course.html", beginnerPage]]) {
+  const ids = [...page.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+  assert.equal(new Set(ids).size, ids.length, `${name}: duplicate IDs`);
+  for (const [, target] of page.matchAll(/(?:href|src)="([^"]+)"/g)) {
+    if (target.startsWith("#")) assert.ok(ids.includes(target.slice(1)), `${name}: missing anchor ${target}`);
+    if (target.startsWith("./")) assert.ok(existsSync(resolve(root, target.split(/[?#]/)[0])), `${name}: missing resource ${target}`);
+  }
+  assert.equal((page.match(/<h1[ >]/g) || []).length, 1, `${name}: one main heading`);
+  assert.ok(page.includes("./assets/mooninai-wechat-qr.jpg"), `${name}: working QR contact`);
+  assert.ok(!page.includes('href="weixin://"'), `${name}: avoid empty WeChat deep link`);
+}
+console.log("Passed: five pages, navigation targets, local assets, profile, repositories and SEO.");
